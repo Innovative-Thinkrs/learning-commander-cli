@@ -8,35 +8,35 @@ const prompt  = require('prompt');
 
 program
   .version('0.1.0', '-v, --version')
-  .usage(' ');
+  .usage('myapp');
   //.usage('encrypt|decrypt <password> <options>');
   
-//   program
-//   .command('encrypt <password>')
-//   .description('Encrypt a plain text password')
-//   .option('-k, --key <string>', 'String|phrase Key to Use')
-//   .action(function (password, options) {
-//     debug('encrypt command');
-//     if( options.key == undefined ){
-//       console.log();
-//       // console.log('  -k, --key option is required');
+  program
+  .command('encrypt <password>')
+  .description('Encrypt a plain text password')
+  .option('-k, --key <string>', 'String|phrase Key to Use')
+  .action(function (password, options) {
+    debug('encrypt command');
+    if( options.key == undefined ){
+      console.log();
+      // console.log('  -k, --key option is required');
       
-//       console.log('  ');
-//       process.exit(1);
-//     } else {
-//       let ciphertext = CryptoJS.AES.encrypt(password,options.key);
-//       console.log();
-//       console.log(' Encrypted Password: ' + ciphertext);
-//       console.log();
-//     }
+      console.log('  ');
+      process.exit(1);
+    } else {
+      let ciphertext = CryptoJS.AES.encrypt(password,options.key);
+      console.log();
+      console.log(' Encrypted Password: ' + ciphertext);
+      console.log();
+    }
  
-//   });
+  });
 
 program.on('--help', function(){
     console.log();
     console.log('Extra Help Text');
     console.log('');
-    console.log('');
+    console.log(' This is extra text at the bottom');
     console.log('');
   });
 
